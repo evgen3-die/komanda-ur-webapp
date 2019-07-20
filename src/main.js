@@ -5,7 +5,15 @@ import BootstrapVue from 'bootstrap-vue'
 import Meta from 'vue-meta'
 import Notifications from 'vue-notification'
 import { library as fontAwesomeLibrary } from '@fortawesome/fontawesome-svg-core'
-import { faLink, faSearch, faUserCircle, faPrint, faShareAlt, faSpinner } from '@fortawesome/free-solid-svg-icons'
+import {
+  faLink,
+  faSearch,
+  faUserCircle,
+  faPrint,
+  faShareAlt,
+  faSpinner,
+  faFilePdf
+} from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 import App from './App.vue'
@@ -18,7 +26,7 @@ Vue.use(BootstrapVue)
 Vue.use(Meta)
 Vue.use(Notifications)
 
-fontAwesomeLibrary.add(faLink, faSearch, faUserCircle, faPrint, faShareAlt, faSpinner)
+fontAwesomeLibrary.add(faLink, faSearch, faUserCircle, faPrint, faShareAlt, faSpinner, faFilePdf)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 async function init () {

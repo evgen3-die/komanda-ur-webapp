@@ -1,9 +1,13 @@
-import { Home, Login, AgreementPage, NotFound } from '@/views'
+import { Home, Login, AgreementPage, NotFound, Agreements } from '@/views'
 
 export default [
   {
     path: '/',
     component: Home
+  },
+  {
+    path: '/agreements',
+    component: Agreements
   },
   {
     path: '/agreements/:id',

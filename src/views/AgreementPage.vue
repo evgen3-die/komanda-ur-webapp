@@ -23,13 +23,11 @@
       </b-row>
       <b-row>
         <b-col md="8">
-          <div class="d-flex mt-5">
-            <div>№ 738</div>
-            <div class="ml-auto">
-              <span class="text-muted mr-1">Статус:</span>
-              <span class="text-uppercase font-weight-bold">Заключено</span>
-            </div>
-          </div>
+          <agreement-header
+            class="mt-5"
+            number="738"
+            status="Заключено"
+          />
           <hr>
           <div>
             <div class="text-muted">
@@ -156,7 +154,7 @@
 </template>
 
 <script>
-import { PageTitle, Pdf } from '@/components'
+import { PageTitle, Pdf, AgreementHeader } from '@/components'
 
 const TAGS = [
   'Агропромышленный комплекс',
@@ -166,7 +164,7 @@ const TAGS = [
 ]
 
 export default {
-  components: { PageTitle, Pdf },
+  components: { PageTitle, Pdf, AgreementHeader },
   data () {
     return {
       pdf: 'http://app.fedgull.ru/content/AB-434_150.pdf',
