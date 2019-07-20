@@ -66,7 +66,7 @@ export default {
             email: this.email,
             password: this.password
           })
-          this.$router.push('/panel')
+          this.$router.replace('/panel')
         } catch (e) {
           this.$notify('Неправильный логин или пароль')
           throw e

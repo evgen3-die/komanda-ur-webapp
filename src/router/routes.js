@@ -1,4 +1,4 @@
-import { Home, Login, AgreementPage, NotFound, Agreements } from '@/views'
+import { Home, Login, AgreementPage, NotFound, Agreements, Panel } from '@/views'
 
 export default [
   {
@@ -22,14 +22,10 @@ export default [
   },
   {
     path: '/panel',
+    component: Panel,
     meta: {
       isNeedLogin: true
-    },
-    children: [
-      {
-        path: 'add'
-      }
-    ]
+    }
   },
   {
     path: '/responsible',
