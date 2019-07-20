@@ -19,6 +19,22 @@
               Распечатать
             </b-button>
           </div>
+          <div
+            v-if="isLogin"
+            class="mt-3"
+          >
+            <b-button
+              class="mr-3"
+              variant="warning"
+            >
+              Удалить
+            </b-button>
+            <b-button
+              variant="outline-warning"
+            >
+              Редактировать
+            </b-button>
+          </div>
         </b-col>
       </b-row>
       <b-row>
