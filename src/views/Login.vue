@@ -42,9 +42,12 @@ export default {
     meta('Авторизация')
   ],
   methods: {
-    ...mapActions([
-      'login'
-    ]),
+    ...mapActions({
+      async login (dispatch) {
+        await dispatch('login')
+        this.$router.push('/panel')
+      }
+    }),
     onSubmitForm () {
       this.login()
     }

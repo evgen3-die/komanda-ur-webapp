@@ -14,14 +14,16 @@ const router = new Router({
 
 router.beforeEach((to, from, next) => {
   const { isLogin } = store.state
-  const isNeedToLogin = to.matched.some(record => record.meta.requiresLogin)
+  const isNeedLogin = to.matched.some(record => record.meta.isNeedLogin)
+  const isNotNeedLogin = to.matched.some(record => record.meta.isNotNeedLogin)
 
-  if (isNeedToLogin && !isLogin) {
-    next({
-      path: '/login',
-      query: { redirect: to.fullPath }
-    })
+  if (isNeedLogin && !isLogin) {
+    next('/login')
+    return
+  }
 
+  if (isNotNeedLogin && isLogin) {
+    next('/panel')
     return
   }
 

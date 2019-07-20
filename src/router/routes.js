@@ -15,12 +15,15 @@ export default [
   },
   {
     path: '/login',
+    meta: {
+      isNotNeedLogin: true
+    },
     component: Login
   },
   {
     path: '/panel',
     meta: {
-      requiresLogin: true
+      isNeedLogin: true
     },
     children: [
       {
