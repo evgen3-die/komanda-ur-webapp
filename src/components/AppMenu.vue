@@ -1,13 +1,24 @@
 <template>
   <nav class="my-2 my-md-0">
-    <router-link
+    <template
       v-for="(item, i) in list"
-      :key="i"
-      class="p-2 text-dark"
-      :to="item.to"
     >
-      {{ item.name }}
-    </router-link>
+      <a
+        v-if="item.isExternal"
+        :key="i"
+        class="p-2 text-dark"
+        :href="item.to"
+        target="_blank"
+      >{{ item.name }}</a>
+      <router-link
+        v-else
+        :key="i"
+        class="p-2 text-dark"
+        :to="item.to"
+      >
+        {{ item.name }}
+      </router-link>
+    </template>
   </nav>
 </template>
 

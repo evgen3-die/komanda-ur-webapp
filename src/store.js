@@ -21,7 +21,8 @@ const MENU = [
   },
   {
     name: 'Опросы',
-    to: ''
+    to: 'https://docs.google.com/forms/d/1g6YfrK_nkkP1mzvlflSXA2o3MZQdxA0LP5HEYhQk3NA/viewform?edit_requested=true',
+    isExternal: true
   }
 ]
 
