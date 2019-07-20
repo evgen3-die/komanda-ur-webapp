@@ -11,8 +11,17 @@
 <script>
 import { AppHeader, AppFooter } from '@/modules'
 
+const SITE_NAME = 'Единый портал соглашений УР'
+
 export default {
-  components: { AppHeader, AppFooter }
+  components: { AppHeader, AppFooter },
+  metaInfo () {
+    return {
+      titleTemplate: chunk => [chunk, SITE_NAME]
+        .filter(partial => partial)
+        .join(' - ')
+    }
+  }
 }
 </script>
 

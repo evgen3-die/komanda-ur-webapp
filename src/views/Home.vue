@@ -3,3 +3,11 @@
     Home
   </div>
 </template>
+
+<script>
+export default {
+  metaInfo: {
+    title: 'Главная страница'
+  }
+}
+</script>
