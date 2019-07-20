@@ -9,7 +9,7 @@
           <div>
             <b-button
               class="mr-2"
-              variant="outline-secondary"
+              variant="outline-primary"
               @click="onClickPrint"
             >
               <font-awesome-icon
@@ -51,9 +51,10 @@
               </small>
             </div>
           </div>
-          <!-- <pdf
+          <pdf
+            class="mt-5"
             :src="pdf"
-          /> -->
+          />
         </b-col>
         <b-col md="4">
           <div class="border rounded px-4 pt-5 pb-3">
@@ -61,7 +62,7 @@
               :href="pdf"
               target="_blank"
               size="lg"
-              variant="dark"
+              variant="primary"
               block
             >
               Скачать соглашение
@@ -126,14 +127,19 @@
             <div class="text-muted">
               Куратор соглашения
             </div>
-            <div class="my-3 font-weight-bold">
+            <div class="mt-3 font-weight-bold">
               Свинин
               Александр
               Александрович
             </div>
+            <div class="text-muted mb-3">
+              <small>
+                Первый заместитель Председателя Правительства Удмуртской Республики
+              </small>
+            </div>
             <b-button
               size="lg"
-              variant="dark"
+              variant="primary"
               block
             >
               36 соглашений на портале
