@@ -6,5 +6,8 @@ export default {
   },
   set (token) {
     localStorage.setItem(KEY, token)
+  },
+  remove () {
+    localStorage.removeItem(KEY)
   }
 }

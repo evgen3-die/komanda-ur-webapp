@@ -19,6 +19,9 @@ export default [
   },
   {
     path: '/panel',
+    meta: {
+      requiresLogin: true
+    },
     children: [
       {
         path: 'add'

@@ -31,6 +31,8 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+
 import { meta } from '@/mixins'
 import { PageTitle } from '@/components'
 
@@ -40,8 +42,11 @@ export default {
     meta('Авторизация')
   ],
   methods: {
+    ...mapActions([
+      'login'
+    ]),
     onSubmitForm () {
-      console.log('submit')
+      this.login()
     }
   }
 }

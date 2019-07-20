@@ -12,8 +12,14 @@ Vue.config.productionTip = false
 Vue.use(BootstrapVue)
 Vue.use(Meta)
 
-new Vue({
-  router,
-  store,
-  render: h => h(App)
-}).$mount('#app')
+async function init () {
+  await store.dispatch('init')
+
+  new Vue({
+    router,
+    store,
+    render: h => h(App)
+  }).$mount('#app')
+}
+
+init()
