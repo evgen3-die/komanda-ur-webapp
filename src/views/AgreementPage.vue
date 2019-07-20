@@ -70,6 +70,7 @@
               pdf, 241.55 Кб
             </div>
           </div>
+
           <div class="mt-5">
             <div class="text-muted">
               Теги
@@ -85,6 +86,7 @@
               </b-badge>
             </div>
           </div>
+
           <div class="border rounded p-4 mt-5">
             <div>
               <div class="text-muted">
@@ -118,6 +120,28 @@
                 Государство
               </div>
             </div>
+          </div>
+
+          <div class="border rounded p-4 mt-5 position-relative">
+            <div class="text-muted">
+              Куратор соглашения
+            </div>
+            <div class="my-3 font-weight-bold">
+              Свинин
+              Александр
+              Александрович
+            </div>
+            <b-button
+              size="lg"
+              variant="dark"
+              block
+            >
+              36 соглашений на портале
+            </b-button>
+            <a
+              href="#"
+              class="stretched-link"
+            />
           </div>
         </b-col>
       </b-row>
