@@ -1,4 +1,4 @@
-import { Home, Login, AgreementPage, NotFound, Agreements, Panel } from '@/views'
+import { Home, Login, AgreementPage, NotFound, Agreements, CreatePage } from '@/views'
 
 export default [
   {
@@ -22,7 +22,14 @@ export default [
   },
   {
     path: '/panel',
-    component: Panel,
+    meta: {
+      isNeedLogin: true
+    },
+    redirect: '/panel/create'
+  },
+  {
+    path: '/panel/create',
+    component: CreatePage,
     meta: {
       isNeedLogin: true
     }
