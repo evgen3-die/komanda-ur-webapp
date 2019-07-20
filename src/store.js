@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+
 import { token } from './utils'
+import { fetchLogin } from './services'
 
 Vue.use(Vuex)
 
@@ -36,8 +38,10 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    async login ({ commit }) {
-      token.set('1')
+    async login ({ commit }, { email, password }) {
+      console.log(email, password)
+      const value = await fetchLogin(email, password)
+      token.set(value)
       commit('updateLoginStatus')
     },
     async init ({ commit }) {

@@ -1,4 +1,6 @@
 import axios from 'axios'
+import { loadProgressBar } from 'axios-progress-bar'
+
 import token from './token'
 
 function authorizationInterceptor (config) {
@@ -11,5 +13,9 @@ function authorizationInterceptor (config) {
 
 const instance = axios.create()
 instance.interceptors.request.use(authorizationInterceptor, Promise.reject)
+
+loadProgressBar({
+  showSpinner: false
+}, instance)
 
 export default instance

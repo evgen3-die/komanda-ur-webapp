@@ -5,6 +5,27 @@
       <router-view />
       <app-footer />
     </b-container>
+    <notifications
+      position="bottom right"
+    >
+      <template
+        slot="body"
+        slot-scope="props"
+      >
+        <b-alert
+          class="mr-3"
+          show
+          variant="danger"
+        >
+          <div>
+            {{ props.item.title }}
+          </div>
+          <div>
+            {{ props.item.text }}
+          </div>
+        </b-alert>
+      </template>
+    </notifications>
   </div>
 </template>
 

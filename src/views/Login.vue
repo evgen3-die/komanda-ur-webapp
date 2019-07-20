@@ -7,15 +7,17 @@
       {{ pageTitle }}
     </page-title>
     <b-form-input
+      v-model="email"
       type="email"
-      class="email"
+      class="mb-3"
       placeholder="Email"
       required
       autofocus
     />
     <b-form-input
+      v-model="password"
       type="password"
-      class="password mb-3"
+      class="mb-3"
       placeholder="Пароль"
       required
     />
@@ -24,6 +26,7 @@
       size="lg"
       type="submit"
       block
+      :disabled="isLoading"
     >
       Войти
     </b-button>
@@ -41,11 +44,30 @@ export default {
   mixins: [
     meta('Авторизация')
   ],
+  data () {
+    return {
+      email: '',
+      password: '',
+      isLoading: false
+    }
+  },
   methods: {
     ...mapActions({
       async login (dispatch) {
-        await dispatch('login')
-        this.$router.push('/panel')
+        this.isLoading = true
+
+        try {
+          await dispatch('login', {
+            email: this.email,
+            password: this.password
+          })
+          this.$router.push('/panel')
+        } catch (e) {
+          this.$notify(e.message)
+          throw e
+        } finally {
+          this.isLoading = false
+        }
       }
     }),
     onSubmitForm () {
@@ -57,19 +79,8 @@ export default {
 
 <style lang="scss" scoped>
 .form {
-  max-width: 330px;
+  max-width: 340px;
   margin: auto;
-}
-
-.email {
-  margin-bottom: -1px;
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
-}
-
-.password {
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
 }
 
 .form-control {
