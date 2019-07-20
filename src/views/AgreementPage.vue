@@ -56,7 +56,7 @@
           /> -->
         </b-col>
         <b-col md="4">
-          <div class="border rounded px-3 pt-5 pb-3">
+          <div class="border rounded px-4 pt-5 pb-3">
             <b-button
               :href="pdf"
               target="_blank"
@@ -79,10 +79,44 @@
                 v-for="(tag, i) in tags"
                 :key="i"
                 variant="light"
-                class="mr-1"
+                class="mr-2 py-2 mb-2"
               >
                 {{ tag }}
               </b-badge>
+            </div>
+          </div>
+          <div class="border rounded p-4 mt-5">
+            <div>
+              <div class="text-muted">
+                Размещено:
+              </div>
+              <div>
+                11.06.2019
+              </div>
+            </div>
+            <div class="mt-3">
+              <div class="text-muted">
+                Дата заключения:
+              </div>
+              <div>
+                23.05.2019
+              </div>
+            </div>
+            <div class="mt-3">
+              <div class="text-muted">
+                Период действия:
+              </div>
+              <div>
+                Бессрочный
+              </div>
+            </div>
+            <div class="mt-3">
+              <div class="text-muted">
+                Категория:
+              </div>
+              <div>
+                Государство
+              </div>
             </div>
           </div>
         </b-col>
