@@ -10,18 +10,6 @@
       </a>
       <router-link
         class="p-2 text-light"
-        to="/"
-      >
-        Поиск
-      </router-link>
-      <router-link
-        class="p-2 text-light"
-        to="/"
-      >
-        Версия для слабовидящих
-      </router-link>
-      <router-link
-        class="p-2 text-light"
         :to="panelLink"
         :class="panelClasses"
       >
