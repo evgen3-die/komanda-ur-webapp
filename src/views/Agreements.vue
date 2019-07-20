@@ -15,7 +15,69 @@
           />
         </b-col>
         <b-col md="4">
-          asdasd
+          <b-form
+            class="border rounded p-4"
+            @submit.prevent
+          >
+            <b-form-group
+              label="Ключевые слова"
+            >
+              <b-form-input
+                type="text"
+                size="lg"
+              />
+            </b-form-group>
+
+            <b-form-group
+              label="Статус"
+            >
+              <b-form-select size="lg" />
+            </b-form-group>
+
+            <b-form-group
+              label="Категория"
+            >
+              <b-form-select size="lg" />
+            </b-form-group>
+
+            <b-form-group
+              label="Куратор"
+            >
+              <b-form-select size="lg" />
+            </b-form-group>
+
+            <b-form-group
+              label="Дата размещения"
+            >
+              <b-form-input
+                type="date"
+                size="lg"
+              />
+            </b-form-group>
+
+            <b-form-group
+              label="Период публикации"
+            >
+              <b-form-input
+                type="date"
+                size="lg"
+              />
+              <b-form-input
+                type="date"
+                size="lg"
+                class="mt-2"
+              />
+            </b-form-group>
+
+            <b-button
+              variant="outline-primary"
+              size="lg"
+              block
+              class="mt-4"
+            >
+              Сбросить фильтры
+            </b-button>
+          </b-form>
         </b-col>
       </b-row>
     </b-container>
