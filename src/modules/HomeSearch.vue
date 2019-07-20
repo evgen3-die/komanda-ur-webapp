@@ -1,9 +1,9 @@
 <template>
   <div>
-    <page-title>
+    <h1 class="h3 font-weight-bold">
       Поиск соглашений
-    </page-title>
-    <b-form class="form">
+    </h1>
+    <b-form class="position-relative mt-4">
       <b-form-input
         size="lg"
         placeholder="Введите ключевые слова поиска"
@@ -15,19 +15,7 @@
   </div>
 </template>
 
-<script>
-import { PageTitle } from '@/components'
-
-export default {
-  components: { PageTitle }
-}
-</script>
-
 <style lang="scss" scoped>
-.form {
-  position: relative;
-}
-
 .btn {
   position: absolute;
   top: 5px;

@@ -1,13 +1,14 @@
 <template>
   <div>
-    <home-search />
+    <home-search class="mt-5 pt-5" />
+    <categories class="mt-5 pt-5" />
   </div>
 </template>
 
 <script>
-import { HomeSearch } from '@/modules'
+import { HomeSearch, Categories } from '@/modules'
 
 export default {
-  components: { HomeSearch }
+  components: { HomeSearch, Categories }
 }
 </script>
