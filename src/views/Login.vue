@@ -1,37 +1,39 @@
 <template>
-  <b-form
-    class="form mt-5 pb-5 mb-5"
-    @submit.prevent="onSubmitForm"
-  >
-    <page-title class="text-center mb-4">
-      {{ pageTitle }}
-    </page-title>
-    <b-form-input
-      v-model="email"
-      type="email"
-      class="mb-2"
-      placeholder="Email"
-      required
-      autofocus
-    />
-    <b-form-input
-      v-model="password"
-      type="password"
-      class="mb-3"
-      placeholder="Пароль"
-      required
-    />
-    <b-button
-      variant="primary"
-      size="lg"
-      type="submit"
-      block
-      :disabled="isLoading"
-      class="mt-4"
+  <b-container>
+    <b-form
+      class="form mt-5 pb-5 mb-5"
+      @submit.prevent="onSubmitForm"
     >
-      Войти
-    </b-button>
-  </b-form>
+      <page-title class="text-center mb-4">
+        {{ pageTitle }}
+      </page-title>
+      <b-form-input
+        v-model="email"
+        type="email"
+        class="mb-2"
+        placeholder="Email"
+        required
+        autofocus
+      />
+      <b-form-input
+        v-model="password"
+        type="password"
+        class="mb-3"
+        placeholder="Пароль"
+        required
+      />
+      <b-button
+        variant="primary"
+        size="lg"
+        type="submit"
+        block
+        :disabled="isLoading"
+        class="mt-4"
+      >
+        Войти
+      </b-button>
+    </b-form>
+  </b-container>
 </template>
 
 <script>

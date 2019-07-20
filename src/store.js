@@ -8,10 +8,6 @@ Vue.use(Vuex)
 
 const MENU = [
   {
-    name: 'О портале',
-    to: ''
-  },
-  {
     name: 'Регистр соглашений',
     to: ''
   },

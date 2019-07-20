@@ -1,4 +1,4 @@
-import { Home, Login } from '@/views'
+import { Home, Login, AgreementPage, NotFound } from '@/views'
 
 export default [
   {
@@ -6,12 +6,8 @@ export default [
     component: Home
   },
   {
-    path: '/agreements',
-    children: [
-      {
-        path: ':id'
-      }
-    ]
+    path: '/agreements/:id',
+    component: AgreementPage
   },
   {
     path: '/login',
@@ -38,5 +34,13 @@ export default [
         path: ':id'
       }
     ]
+  },
+  {
+    path: '/404',
+    component: NotFound
+  },
+  {
+    path: '*',
+    component: NotFound
   }
 ]

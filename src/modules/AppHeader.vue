@@ -2,7 +2,7 @@
   <header>
     <app-navbar />
     <b-container>
-      <div class="d-flex flex-column flex-md-row align-items-center py-3 mb-3">
+      <div class="d-flex flex-column flex-md-row align-items-center py-3">
         <router-link
           to="/"
           class="my-0 mr-md-auto font-weight-normal"
