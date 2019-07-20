@@ -1,8 +1,8 @@
 <template>
   <div>
     <app-header />
+    <router-view />
     <b-container>
-      <router-view />
       <app-footer />
     </b-container>
     <notifications
