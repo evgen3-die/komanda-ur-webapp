@@ -9,6 +9,10 @@
           <agreement-card class="mb-3" />
           <agreement-card class="mb-3" />
           <agreement-card class="mb-3" />
+          <b-pagination
+            :total-rows="100"
+            :per-page="10"
+          />
         </b-col>
         <b-col md="4">
           asdasd
