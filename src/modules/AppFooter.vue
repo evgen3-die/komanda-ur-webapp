@@ -1,17 +1,22 @@
 <template>
   <footer class="py-4 py-md-5">
     <b-row>
-      <b-col md="5">
+      <b-col md="4">
         <img
           src="@/assets/images/logo-light.svg"
           alt=""
         >
-        <div class="mt-4">
+      </b-col>
+      <b-col
+        md="4"
+        offset="1"
+      >
+        <div>
           <div class="text-muted">
             Адрес:
           </div>
           <div>
-            426007, Удмуртская Республика,
+            426007, Удмуртская Республика,<br>
             г. Ижевск, ул. Пушкинская , 214
           </div>
         </div>
@@ -27,13 +32,14 @@
       <b-col
         md="3"
       >
-        <h5 class="mb-3 text-muted">
+        <div class="mb-3 text-muted">
           Основные разделы
-        </h5>
+        </div>
         <ul class="list-unstyled text-small">
           <li
             v-for="(item, i) in menu"
             :key="i"
+            class="mb-3"
           >
             <a
               v-if="item.isExternal"
