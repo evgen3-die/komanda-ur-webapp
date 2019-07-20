@@ -3,9 +3,9 @@
     class="form"
     @submit.prevent="onSubmitForm"
   >
-    <h1 class="h3 mb-3 font-weight-normal text-center">
-      {{ title }}
-    </h1>
+    <page-title class="text-center">
+      {{ pageTitle }}
+    </page-title>
     <b-form-input
       type="email"
       class="email"
@@ -31,20 +31,17 @@
 </template>
 
 <script>
+import { meta } from '@/mixins'
+import { PageTitle } from '@/components'
+
 export default {
-  data () {
-    return {
-      title: 'Авторизация'
-    }
-  },
+  components: { PageTitle },
+  mixins: [
+    meta('Авторизация')
+  ],
   methods: {
     onSubmitForm () {
       console.log('submit')
-    }
-  },
-  metaInfo () {
-    return {
-      title: this.title
     }
   }
 }
