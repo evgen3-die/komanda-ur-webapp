@@ -5,10 +5,15 @@
     </h1>
     <b-form class="position-relative mt-4">
       <b-form-input
+        class="shadow input"
         size="lg"
         placeholder="Введите ключевые слова поиска"
       />
-      <b-button variant="primary">
+      <b-button
+        class="button"
+        size="lg"
+        variant="primary"
+      >
         Найти
       </b-button>
     </b-form>
@@ -18,7 +23,15 @@
 <style lang="scss" scoped>
 .btn {
   position: absolute;
-  top: 5px;
-  right: 5px;
+  top: 10px;
+  right: 10px;
+}
+
+.input {
+  height: 76px;
+}
+
+.button {
+  height: 56px;
 }
 </style>
