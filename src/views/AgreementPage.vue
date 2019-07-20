@@ -52,11 +52,24 @@
             </div>
           </div>
           <!-- <pdf
-            src="http://app.fedgull.ru/content/AB-434_150.pdf"
+            :src="pdf"
           /> -->
         </b-col>
         <b-col md="4">
-          asdasd
+          <div class="border rounded px-3 pt-5 pb-3">
+            <b-button
+              :href="pdf"
+              target="_blank"
+              size="lg"
+              variant="dark"
+              block
+            >
+              Скачать соглашение
+            </b-button>
+            <div class="text-muted text-center mt-2">
+              pdf, 241.55 Кб
+            </div>
+          </div>
         </b-col>
       </b-row>
     </b-container>
@@ -68,6 +81,11 @@ import { PageTitle, Pdf } from '@/components'
 
 export default {
   components: { PageTitle, Pdf },
+  data () {
+    return {
+      pdf: 'http://app.fedgull.ru/content/AB-434_150.pdf'
+    }
+  },
   methods: {
     onClickPrint () {
       window.print()
