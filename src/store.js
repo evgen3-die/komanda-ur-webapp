@@ -9,7 +9,7 @@ Vue.use(Vuex)
 const MENU = [
   {
     name: 'Регистр соглашений',
-    to: ''
+    to: '/agreements'
   },
   {
     name: 'Кураторы',

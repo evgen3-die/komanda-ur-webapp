@@ -17,7 +17,7 @@
       <small>
         Размещено: 04.07.2019 <span class="mx-2">|</span> Дата заключения: 20.05.2019
       </small>
-      <small class="ml-auto">
+      <small class="ml-auto text-nowrap">
         <font-awesome-icon
           icon="file-pdf"
           class="mr-1"

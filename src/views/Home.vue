@@ -6,16 +6,17 @@
     </b-container>
     <div class="bg-white py-5 mt-5">
       <b-container>
-        <statistics />
+        <home-agreements />
+        <statistics class="mt-5 py-5" />
       </b-container>
     </div>
   </div>
 </template>
 
 <script>
-import { HomeSearch, Categories, Statistics } from '@/modules'
+import { HomeSearch, Categories, Statistics, HomeAgreements } from '@/modules'
 
 export default {
-  components: { HomeSearch, Categories, Statistics }
+  components: { HomeSearch, Categories, Statistics, HomeAgreements }
 }
 </script>
