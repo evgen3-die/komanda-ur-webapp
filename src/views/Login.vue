@@ -12,6 +12,7 @@
         type="email"
         class="mb-2"
         placeholder="Email"
+        size="lg"
         required
         autofocus
       />
@@ -20,6 +21,7 @@
         type="password"
         class="mb-3"
         placeholder="Пароль"
+        size="lg"
         required
       />
       <b-button
