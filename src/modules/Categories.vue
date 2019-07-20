@@ -19,7 +19,7 @@
         class="mb-4"
       >
         <div
-          class="bg-white d-block rounded p-4 position-relative"
+          class="bg-white d-block rounded p-4 position-relative shadow-sm"
         >
           <div class="icon d-flex align-items-center">
             <img

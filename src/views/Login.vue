@@ -64,7 +64,7 @@ export default {
           })
           this.$router.push('/panel')
         } catch (e) {
-          this.$notify(e.message)
+          this.$notify('Неправильный логин или пароль')
           throw e
         } finally {
           this.isLoading = false

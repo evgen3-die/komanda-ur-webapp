@@ -1,8 +1,28 @@
 <template>
   <footer class="py-4 py-md-5">
     <b-row>
-      <b-col md="3">
-        <small class="d-block mb-3">&copy; 2017-2019</small>
+      <b-col md="5">
+        <img
+          src="@/assets/images/logo-light.svg"
+          alt=""
+        >
+        <div class="mt-4">
+          <div class="text-muted">
+            Адрес:
+          </div>
+          <div>
+            426007, Удмуртская Республика,
+            г. Ижевск, ул. Пушкинская , 214
+          </div>
+        </div>
+        <div class="mt-4">
+          <div class="text-muted">
+            Тел./факс:
+          </div>
+          <div>
+            (3412) 497-200
+          </div>
+        </div>
       </b-col>
       <b-col
         md="3"
