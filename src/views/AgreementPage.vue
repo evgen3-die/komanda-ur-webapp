@@ -23,9 +23,37 @@
       </b-row>
       <b-row>
         <b-col md="8">
-          <pdf
+          <div class="d-flex mt-5">
+            <div>№ 738</div>
+            <div class="ml-auto">
+              <span class="text-muted mr-1">Статус:</span>
+              <span class="text-uppercase font-weight-bold">Заключено</span>
+            </div>
+          </div>
+          <hr>
+          <div>
+            <div class="text-muted">
+              Полное название
+            </div>
+            <div>
+              <small class="font-weight-bold">
+                Соглашение между Правительством Удмуртской Республики (Российская Федерация) и Народным Правительством провинции Сычуань (Китайская Народная Республика) о сотрудничестве в торгово-экономической, научно-технической, социально-гуманитарной и культурных областях
+              </small>
+            </div>
+          </div>
+          <div class="mt-4">
+            <div class="text-muted">
+              Стороны
+            </div>
+            <div>
+              <small class="font-weight-bold">
+                Правительство Удмуртской Республики (Российская Федерация) и Народное Правительство провинция Сычуань (Китайская Народная Республика)
+              </small>
+            </div>
+          </div>
+          <!-- <pdf
             src="http://app.fedgull.ru/content/AB-434_150.pdf"
-          />
+          /> -->
         </b-col>
         <b-col md="4">
           asdasd
