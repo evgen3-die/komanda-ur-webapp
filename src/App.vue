@@ -1,7 +1,9 @@
 <template>
-  <div>
-    <app-header />
-    <router-view />
+  <div class="wrapper">
+    <div class="main">
+      <app-header />
+      <router-view />
+    </div>
     <div class="bg-dark text-light">
       <b-container>
         <app-footer />
@@ -48,6 +50,14 @@ export default {
 }
 </script>
 
-<style lang="scss">
-html {}
+<style lang="scss" scoped>
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main {
+  flex-grow: 1;
+}
 </style>
