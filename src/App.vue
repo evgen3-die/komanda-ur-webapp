@@ -2,9 +2,11 @@
   <div>
     <app-header />
     <router-view />
-    <b-container>
-      <app-footer />
-    </b-container>
+    <div class="bg-dark text-light">
+      <b-container>
+        <app-footer />
+      </b-container>
+    </div>
     <notifications
       position="bottom right"
     >

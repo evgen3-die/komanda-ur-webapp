@@ -39,8 +39,8 @@ export default new Vuex.Store({
   },
   actions: {
     async login ({ commit }, { email, password }) {
-      console.log(email, password)
       const value = await fetchLogin(email, password)
+
       token.set(value)
       commit('updateLoginStatus')
     },

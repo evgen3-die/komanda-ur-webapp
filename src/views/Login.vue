@@ -1,15 +1,15 @@
 <template>
   <b-form
-    class="form"
+    class="form mt-5 pb-5 mb-5"
     @submit.prevent="onSubmitForm"
   >
-    <page-title class="text-center">
+    <page-title class="text-center mb-4">
       {{ pageTitle }}
     </page-title>
     <b-form-input
       v-model="email"
       type="email"
-      class="mb-3"
+      class="mb-2"
       placeholder="Email"
       required
       autofocus
@@ -27,6 +27,7 @@
       type="submit"
       block
       :disabled="isLoading"
+      class="mt-4"
     >
       Войти
     </b-button>

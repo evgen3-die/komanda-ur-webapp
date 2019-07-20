@@ -1,8 +1,8 @@
 <template>
   <div>
-    <h1 class="h3 font-weight-bold">
+    <page-title>
       Поиск соглашений
-    </h1>
+    </page-title>
     <b-form class="position-relative mt-4">
       <b-form-input
         class="shadow input"
@@ -19,6 +19,14 @@
     </b-form>
   </div>
 </template>
+
+<script>
+import { PageTitle } from '@/components'
+
+export default {
+  components: { PageTitle }
+}
+</script>
 
 <style lang="scss" scoped>
 .btn {
