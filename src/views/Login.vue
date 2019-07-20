@@ -1,7 +1,7 @@
 <template>
-  <b-container>
+  <b-container class="mt-5 pb-5 mb-5">
     <b-form
-      class="form mt-5 pb-5 mb-5"
+      class="form bg-white rounded p-4"
       @submit.prevent="onSubmitForm"
     >
       <page-title class="text-center mb-4">
@@ -82,7 +82,7 @@ export default {
 
 <style lang="scss" scoped>
 .form {
-  max-width: 340px;
+  max-width: 360px;
   margin: auto;
 }
 

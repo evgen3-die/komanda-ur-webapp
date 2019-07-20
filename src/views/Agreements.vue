@@ -12,6 +12,7 @@
           <b-pagination
             :total-rows="100"
             :per-page="10"
+            class="mt-4"
           />
         </b-col>
         <b-col md="4">
