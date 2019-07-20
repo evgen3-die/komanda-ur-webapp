@@ -70,6 +70,21 @@
               pdf, 241.55 Кб
             </div>
           </div>
+          <div class="mt-5">
+            <div class="text-muted">
+              Теги
+            </div>
+            <div class="mt-1 h5">
+              <b-badge
+                v-for="(tag, i) in tags"
+                :key="i"
+                variant="light"
+                class="mr-1"
+              >
+                {{ tag }}
+              </b-badge>
+            </div>
+          </div>
         </b-col>
       </b-row>
     </b-container>
@@ -79,11 +94,19 @@
 <script>
 import { PageTitle, Pdf } from '@/components'
 
+const TAGS = [
+  'Агропромышленный комплекс',
+  'Туризм',
+  'Пищевая промышленность',
+  'Образование'
+]
+
 export default {
   components: { PageTitle, Pdf },
   data () {
     return {
-      pdf: 'http://app.fedgull.ru/content/AB-434_150.pdf'
+      pdf: 'http://app.fedgull.ru/content/AB-434_150.pdf',
+      tags: TAGS
     }
   },
   methods: {
