@@ -20,25 +20,31 @@
 </template>
 
 <script>
-const STATISTICS = [
-  {
-    count: 345,
-    description: 'Правительство Удмуртской Республики'
-  },
-  {
-    count: 280,
-    description: 'Министерство строительства, жилищно-коммунального хозяйства и энергетики Удмуртской Республики'
-  },
-  {
-    count: 158,
-    description: 'Министерство образования и науки УР'
-  }
-]
-
 export default {
-  data () {
-    return {
-      statistics: STATISTICS
+  props: {
+    agreements: {
+      type: Array,
+      default: () => []
+    },
+    isLoading: {
+      type: Boolean,
+      default: false
+    }
+  },
+  computed: {
+    statistics () {
+      return Object.entries(this.agreements
+        .reduce((persons, { representatives }) => {
+          representatives.forEach(name => {
+            persons[name] = persons[name] === undefined ? 1 : persons[name] + 1
+          })
+
+          return persons
+        }, {}))
+        .map(([name, count]) => ({
+          count,
+          description: name
+        }))
     }
   }
 }

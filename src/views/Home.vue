@@ -14,7 +14,11 @@
           :agreements="lastAgreements"
           :is-loading="isLoading"
         />
-        <statistics class="mt-lg-5 py-lg-5 py-3" />
+        <statistics
+          :agreements="agreements"
+          :is-loading="isLoading"
+          class="mt-lg-5 py-lg-5 py-3"
+        />
       </b-container>
     </div>
   </div>
