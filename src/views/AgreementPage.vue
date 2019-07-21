@@ -38,11 +38,6 @@
               >
                 Удалить
               </b-button>
-              <b-button
-                variant="outline-warning"
-              >
-                Редактировать
-              </b-button>
             </div>
           </b-col>
         </b-row>
