@@ -24,6 +24,7 @@
               label="Ключевые слова"
             >
               <b-form-input
+                v-model="query"
                 type="text"
                 size="lg"
               />
@@ -32,25 +33,38 @@
             <b-form-group
               label="Статус"
             >
-              <b-form-select size="lg" />
+              <b-form-select
+                v-model="status"
+                :options="options"
+                size="lg"
+              />
             </b-form-group>
 
             <b-form-group
               label="Категория"
             >
-              <b-form-select size="lg" />
+              <b-form-select
+                v-model="category"
+                :options="options"
+                size="lg"
+              />
             </b-form-group>
 
             <b-form-group
               label="Куратор"
             >
-              <b-form-select size="lg" />
+              <b-form-select
+                v-model="curator"
+                :options="options"
+                size="lg"
+              />
             </b-form-group>
 
             <b-form-group
               label="Дата размещения"
             >
               <b-form-input
+                v-model="created"
                 type="date"
                 size="lg"
               />
@@ -60,10 +74,12 @@
               label="Период публикации"
             >
               <b-form-input
+                v-model="publishFrom"
                 type="date"
                 size="lg"
               />
               <b-form-input
+                v-model="publishTo"
                 type="date"
                 size="lg"
                 class="mt-2"
@@ -75,6 +91,7 @@
               size="lg"
               block
               class="mt-4"
+              @click.prevent="onClickClear"
             >
               Сбросить фильтры
             </b-button>
@@ -89,10 +106,38 @@
 import { meta } from '@/mixins'
 import { PageTitle, AgreementCard } from '@/components'
 
+const OPTIONS = [
+  'Один',
+  'Два'
+]
+
 export default {
   components: { PageTitle, AgreementCard },
   mixins: [
     meta('Реестр соглашений')
-  ]
+  ],
+  data () {
+    return {
+      query: '',
+      status: '',
+      category: '',
+      curator: '',
+      created: '',
+      publishFrom: '',
+      publishTo: '',
+      options: OPTIONS
+    }
+  },
+  methods: {
+    onClickClear () {
+      this.query = ''
+      this.status = ''
+      this.category = ''
+      this.curator = ''
+      this.created = ''
+      this.publishFrom = ''
+      this.publishTo = ''
+    }
+  }
 }
 </script>

@@ -4,15 +4,16 @@
       <page-title>{{ pageTitle }}</page-title>
       <b-form
         class="mt-5"
-        @submit.prevent
       >
         <b-form-group
           label="Название"
           class="mb-4"
         >
           <b-form-input
+            v-model="name"
             type="text"
             size="lg"
+            required
           />
         </b-form-group>
         <b-row>
@@ -21,7 +22,10 @@
               label="Полное название"
               class="mb-4"
             >
-              <b-form-textarea />
+              <b-form-textarea
+                v-model="fullName"
+                required
+              />
             </b-form-group>
           </b-col>
           <b-col>
@@ -29,7 +33,10 @@
               label="Стороны"
               class="mb-4"
             >
-              <b-form-textarea />
+              <b-form-textarea
+                v-model="sides"
+                required
+              />
             </b-form-group>
           </b-col>
         </b-row>
@@ -38,8 +45,10 @@
           class="mb-4"
         >
           <b-form-input
+            v-model="url"
             type="url"
             size="lg"
+            required
           />
         </b-form-group>
         <b-form-group
@@ -47,8 +56,11 @@
           class="mb-4"
         >
           <b-form-select
+            v-model="tags"
             multiple
             :select-size="4"
+            :options="options"
+            required
           />
         </b-form-group>
         <b-row>
@@ -57,7 +69,12 @@
               label="Статус"
               class="mb-4"
             >
-              <b-form-select size="lg" />
+              <b-form-select
+                v-model="status"
+                :options="options"
+                required
+                size="lg"
+              />
             </b-form-group>
           </b-col>
           <b-col>
@@ -65,7 +82,12 @@
               label="Категория"
               class="mb-4"
             >
-              <b-form-select size="lg" />
+              <b-form-select
+                v-model="category"
+                :options="options"
+                size="lg"
+                required
+              />
             </b-form-group>
           </b-col>
         </b-row>
@@ -75,7 +97,12 @@
               label="Куратор"
               class="mb-4"
             >
-              <b-form-select size="lg" />
+              <b-form-select
+                v-model="curator"
+                :options="options"
+                size="lg"
+                required
+              />
             </b-form-group>
           </b-col>
           <b-col>
@@ -84,8 +111,10 @@
               class="mb-4"
             >
               <b-form-input
+                v-model="contractDate"
                 type="date"
                 size="lg"
+                required
               />
             </b-form-group>
           </b-col>
@@ -97,14 +126,18 @@
           <b-row>
             <b-col>
               <b-form-input
+                v-model="periodFrom"
                 type="date"
                 size="lg"
+                required
               />
             </b-col>
             <b-col>
               <b-form-input
+                v-model="periodTo"
                 type="date"
                 size="lg"
+                required
               />
             </b-col>
           </b-row>
@@ -127,6 +160,7 @@
                     v-model="task.name"
                     type="text"
                     size="lg"
+                    required
                   />
                 </b-form-group>
               </b-col>
@@ -138,6 +172,7 @@
                     v-model="task.date"
                     type="date"
                     size="lg"
+                    required
                   />
                 </b-form-group>
               </b-col>
@@ -172,6 +207,7 @@
         </b-form-group>
 
         <b-button
+          type="submit"
           variant="primary"
           size="lg"
           class="mt-5"
@@ -194,6 +230,11 @@ const EMPTY_TASK = {
   isComplete: false
 }
 
+const OPTIONS = [
+  'Один',
+  'Два'
+]
+
 export default {
   components: { PageTitle },
   mixins: [
@@ -201,11 +242,23 @@ export default {
   ],
   data () {
     return {
+      name: '',
+      fullName: '',
+      sides: '',
+      url: '',
+      tags: [],
+      status: '',
+      category: '',
+      curator: '',
+      contractDate: '',
+      periodFrom: '',
+      periodTo: '',
       tasks: [
         {
           ...EMPTY_TASK
         }
-      ]
+      ],
+      options: OPTIONS
     }
   },
   methods: {
