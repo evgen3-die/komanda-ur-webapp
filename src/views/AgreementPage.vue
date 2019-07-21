@@ -49,7 +49,7 @@
         <b-row>
           <b-col md="8">
             <b-nav
-              v-if="isLogin"
+              v-if="isTabsVisible"
               pills
             >
               <b-nav-item
@@ -74,32 +74,23 @@
             <hr>
 
             <template v-if="isProgress">
-              <div class="mb-3 d-flex align-items-center tasks">
+              <div
+                v-for="(todo, i) in todos"
+                :key="i"
+                class="mb-3 d-flex align-items-center tasks"
+              >
                 <div
                   class="flex-shrink-0 circle d-flex align-items-center
                 justify-content-center h4 font-weight-bold rounded-circle mb-0 bg-success text-white"
+                  :class="getCircleClass(todo)"
                 >
-                  1
+                  {{ i + 1 }}
                 </div>
                 <div class="ml-3">
                   <div class="text-muted">
-                    28.05.2018
+                    {{ todo.execution_date }}
                   </div>
-                  <div>Подписание соглашения</div>
-                </div>
-              </div>
-              <div class="mb-3 d-flex align-items-center tasks">
-                <div
-                  class="flex-shrink-0 circle d-flex align-items-center
-                justify-content-center h4 font-weight-bold rounded-circle mb-0 text-white bg-dark"
-                >
-                  2
-                </div>
-                <div class="ml-3">
-                  <div class="text-muted">
-                    28.05.2018
-                  </div>
-                  <div>Публикация соглашения</div>
+                  <div>{{ todo.name }}</div>
                 </div>
               </div>
             </template>
@@ -147,18 +138,21 @@
               </div>
             </div>
 
-            <div class="mt-4 mt-md-5">
+            <div
+              v-if="response.tags.length"
+              class="mt-4 mt-md-5"
+            >
               <div class="text-muted">
                 Теги
               </div>
               <div class="mt-1 h5">
                 <b-badge
-                  v-for="(tag, i) in tags"
+                  v-for="(tag, i) in response.tags"
                   :key="i"
                   variant="light"
                   class="mr-2 py-2 mb-2"
                 >
-                  {{ tag }}
+                  {{ tag.name }}
                 </b-badge>
               </div>
             </div>
@@ -218,18 +212,10 @@ import { mapState } from 'vuex'
 import { PageTitle, Pdf, AgreementHeader } from '@/components'
 import { fetchAgreement } from '@/services'
 
-const TAGS = [
-  'Агропромышленный комплекс',
-  'Туризм',
-  'Пищевая промышленность',
-  'Образование'
-]
-
 export default {
   components: { PageTitle, Pdf, AgreementHeader },
   data () {
     return {
-      tags: TAGS,
       isProgress: false,
       isLoading: true,
       response: {}
@@ -238,7 +224,13 @@ export default {
   computed: {
     ...mapState([
       'isLogin'
-    ])
+    ]),
+    isTabsVisible () {
+      return this.isLogin && !!this.todos.length
+    },
+    todos () {
+      return this.response.todo || []
+    }
   },
   created () {
     this.loadAgreement()
@@ -246,6 +238,12 @@ export default {
   methods: {
     onClickPrint () {
       window.print()
+    },
+    getCircleClass ({ checked }) {
+      return {
+        'bg-dark': checked === '0',
+        'bg-success': checked !== '0'
+      }
     },
     async loadAgreement () {
       try {
