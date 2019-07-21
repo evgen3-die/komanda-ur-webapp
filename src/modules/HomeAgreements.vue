@@ -22,7 +22,7 @@
         v-for="(agreement, i) in agreements"
         :key="i"
         lg="4"
-        class="mb-3 mb-lg-0 d-flex"
+        class="mb-3 mb-lg-0"
       >
         <agreement-card
           :to="`/agreements/${agreement.id}`"

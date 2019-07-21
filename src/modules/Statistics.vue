@@ -35,9 +35,11 @@ export default {
     statistics () {
       return Object.entries(this.agreements
         .reduce((persons, { representatives }) => {
-          representatives.forEach(name => {
-            persons[name] = persons[name] === undefined ? 1 : persons[name] + 1
-          })
+          if (representatives) {
+            representatives.forEach(name => {
+              persons[name] = persons[name] === undefined ? 1 : persons[name] + 1
+            })
+          }
 
           return persons
         }, {}))

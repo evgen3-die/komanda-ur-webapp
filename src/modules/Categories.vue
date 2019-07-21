@@ -40,10 +40,6 @@
           <div class="text-muted">
             {{ category.count }}
           </div>
-          <a
-            href="#"
-            class="stretched-link"
-          />
         </div>
       </b-col>
     </b-row>
