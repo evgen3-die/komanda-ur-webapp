@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 
 import { token } from './utils'
-import { fetchLogin, fetchHandbooks } from './services'
+import { fetchLogin, fetchHandbooks, fetchAgreementsList } from './services'
 
 Vue.use(Vuex)
 
@@ -21,7 +21,8 @@ const MENU = [
 export default new Vuex.Store({
   state: {
     isLogin: false,
-    handbooks: {}
+    handbooks: {},
+    agreements: []
   },
   getters: {
     menu: () => MENU
@@ -32,6 +33,9 @@ export default new Vuex.Store({
     },
     setHandbooks (state, handbooks) {
       state.handbooks = handbooks
+    },
+    setAgreements (state, agreements) {
+      state.agreements = agreements
     }
   },
   actions: {
@@ -56,6 +60,9 @@ export default new Vuex.Store({
     },
     async loadHandbooks ({ commit }) {
       commit('setHandbooks', await fetchHandbooks())
+    },
+    async loadAgreementsList ({ commit }) {
+      commit('setAgreements', await fetchAgreementsList())
     }
   }
 })

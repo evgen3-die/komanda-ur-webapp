@@ -25,18 +25,20 @@
 </template>
 
 <script>
+import { mapActions, mapState } from 'vuex'
 import { HomeSearch, Categories, Statistics, HomeAgreements } from '@/modules'
-import { fetchAgreementsList } from '@/services'
 
 export default {
   components: { HomeSearch, Categories, Statistics, HomeAgreements },
   data () {
     return {
-      agreements: [],
       isLoading: true
     }
   },
   computed: {
+    ...mapState([
+      'agreements'
+    ]),
     lastAgreements () {
       return this.agreements.slice().reverse().slice(0, 3)
     }
@@ -45,15 +47,17 @@ export default {
     this.loadAgreementsList()
   },
   methods: {
-    async loadAgreementsList () {
-      try {
-        this.agreements = await fetchAgreementsList()
-        this.isLoading = false
-      } catch (e) {
-        this.$notify('Ошибка запроса соглашений')
-        throw e
+    ...mapActions({
+      async loadAgreementsList (dispatch) {
+        try {
+          await dispatch('loadAgreementsList')
+          this.isLoading = false
+        } catch (e) {
+          this.$notify('Ошибка запроса соглашений')
+          throw e
+        }
       }
-    }
+    })
   }
 }
 </script>

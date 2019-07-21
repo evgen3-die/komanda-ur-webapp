@@ -116,6 +116,16 @@
                   </small>
                 </div>
               </div>
+              <div class="mt-4">
+                <div class="text-muted">
+                  Представители
+                </div>
+                <div>
+                  <small class="font-weight-bold">
+                    {{ response.representatives.join(' и ') }}
+                  </small>
+                </div>
+              </div>
               <pdf
                 class="mt-5"
                 :src="response.document_text"
@@ -192,12 +202,15 @@
               </div>
             </div>
 
-            <div class="border rounded p-4 mt-4 mt-md-5 position-relative">
+            <div
+              v-if="response.responsible_users.length"
+              class="border rounded p-4 mt-4 mt-md-5 position-relative"
+            >
               <div class="text-muted">
                 Кураторы соглашения
               </div>
               <div class="mt-3 font-weight-bold">
-                {{ response.representatives.join(', ') }}
+                {{ response.responsible_users.join(', ') }}
               </div>
             </div>
           </b-col>
