@@ -35,6 +35,7 @@
               <b-button
                 class="mr-3"
                 variant="warning"
+                @click.prevent="onClickDelete"
               >
                 Удалить
               </b-button>
@@ -107,7 +108,7 @@
                 </div>
                 <div>
                   <small class="font-weight-bold">
-                    {{ response.sides.join(' и ') }}
+                    {{ response.sides ? response.sides.join(' и ') : '' }}
                   </small>
                 </div>
               </div>
@@ -117,7 +118,7 @@
                 </div>
                 <div>
                   <small class="font-weight-bold">
-                    {{ response.representatives.join(' и ') }}
+                    {{ response.representatives ? response.representatives.join(' и ') : '' }}
                   </small>
                 </div>
               </div>
@@ -187,7 +188,10 @@
                   {{ response.validity_period }}
                 </div>
               </div>
-              <div class="mt-3">
+              <div
+                v-if="response.category"
+                class="mt-3"
+              >
                 <div class="text-muted">
                   Категория:
                 </div>
@@ -218,7 +222,7 @@
 <script>
 import { mapState } from 'vuex'
 import { PageTitle, Pdf, AgreementHeader } from '@/components'
-import { fetchAgreement } from '@/services'
+import { fetchAgreement, fetchAgreementDelete } from '@/services'
 
 export default {
   components: { PageTitle, Pdf, AgreementHeader },
@@ -247,6 +251,9 @@ export default {
     onClickPrint () {
       window.print()
     },
+    onClickDelete () {
+      this.deleteAgreement()
+    },
     getCircleClass ({ checked }) {
       return {
         'bg-dark': checked === '0',
@@ -257,6 +264,15 @@ export default {
       try {
         this.response = await fetchAgreement(this.$route.params.id)
         this.isLoading = false
+      } catch (e) {
+        this.$router.push('/404')
+        throw e
+      }
+    },
+    async deleteAgreement () {
+      try {
+        await fetchAgreementDelete(this.$route.params.id)
+        this.$router.push('/agreements')
       } catch (e) {
         this.$router.push('/404')
         throw e

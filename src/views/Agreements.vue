@@ -111,6 +111,7 @@ export default {
     async loadAgreementsList () {
       try {
         this.response = await fetchAgreementsList()
+        this.response.reverse()
         this.isLoading = false
       } catch (e) {
         this.$notify('Ошибка запроса соглашений')
