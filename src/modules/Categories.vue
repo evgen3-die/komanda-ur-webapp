@@ -2,7 +2,7 @@
   <div>
     <div class="d-flex mb-1 mt-lg-3 align-items-baseline">
       <div class="h5">
-        12 087 соглашений на портале
+        Категории
       </div>
       <router-link
         to="/agreements"
@@ -11,7 +11,13 @@
         Все соглашения
       </router-link>
     </div>
-    <b-row>
+    <div
+      v-if="isLoading"
+      class="text-center"
+    >
+      <b-spinner variant="primary" />
+    </div>
+    <b-row v-else>
       <b-col
         v-for="(category, i) in categories"
         :key="i"
@@ -45,6 +51,8 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 import gosudarstvo from '@/assets/images/categories/1.png'
 import ekonomika from '@/assets/images/categories/2.png'
 import obrazovanie from '@/assets/images/categories/3.png'
@@ -53,78 +61,44 @@ import ekologiya from '@/assets/images/categories/5.png'
 import kulutra from '@/assets/images/categories/6.png'
 import transport from '@/assets/images/categories/7.png'
 import torgovlya from '@/assets/images/categories/8.png'
-import stroitelstvo from '@/assets/images/categories/9.png'
-import sport from '@/assets/images/categories/10.png'
-import turizm from '@/assets/images/categories/11.png'
-import bezopasnost from '@/assets/images/categories/12.png'
 
-const CATEGORIES = [
-  {
-    icon: gosudarstvo,
-    title: 'Государство',
-    count: 1
-  },
-  {
-    icon: ekonomika,
-    title: 'Экономика',
-    count: 3
-  },
-  {
-    icon: obrazovanie,
-    title: 'Образование',
-    count: 4
-  },
-  {
-    icon: zdorovie,
-    title: 'Здоровье',
-    count: 100
-  },
-  {
-    icon: ekologiya,
-    title: 'Экология',
-    count: 100
-  },
-  {
-    icon: kulutra,
-    title: 'Культруа',
-    count: 100
-  },
-  {
-    icon: transport,
-    title: 'Транспорт',
-    count: 100
-  },
-  {
-    icon: torgovlya,
-    title: 'Торговля',
-    count: 100
-  },
-  {
-    icon: stroitelstvo,
-    title: 'Строительство',
-    count: 100
-  },
-  {
-    icon: sport,
-    title: 'Спорт',
-    count: 100
-  },
-  {
-    icon: turizm,
-    title: 'Туризм',
-    count: 100
-  },
-  {
-    icon: bezopasnost,
-    title: 'Безопасность',
-    count: 100
-  }
-]
+const ICONS = {
+  1: gosudarstvo,
+  2: ekonomika,
+  3: obrazovanie,
+  4: zdorovie,
+  5: ekologiya,
+  6: kulutra,
+  7: transport,
+  8: torgovlya
+}
 
 export default {
-  data () {
-    return {
-      categories: CATEGORIES
+  props: {
+    agreements: {
+      type: Array,
+      default: () => []
+    },
+    isLoading: {
+      type: Boolean,
+      default: false
+    }
+  },
+  computed: {
+    ...mapState([
+      'handbooks'
+    ]),
+    categories () {
+      return this.handbooks.categories
+        .map(category => ({
+          icon: ICONS[category.id],
+          title: category.name,
+          count: this.agreements
+            .reduce((count, { id }) => {
+              return count + (id === category.id ? 1 : 0)
+            }, 0)
+        }))
+        .filter(({ count }) => !!count)
     }
   }
 }

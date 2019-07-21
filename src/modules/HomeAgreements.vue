@@ -11,14 +11,27 @@
         Все соглашения
       </router-link>
     </div>
-    <b-row>
+    <div
+      v-if="isLoading"
+      class="text-center"
+    >
+      <b-spinner variant="primary" />
+    </div>
+    <b-row v-else>
       <b-col
-        v-for="(i) in 3"
+        v-for="(agreement, i) in agreements"
         :key="i"
         lg="4"
         class="mb-3 mb-lg-0"
       >
-        <agreement-card />
+        <agreement-card
+          :to="`/agreements/${agreement.id}`"
+          :number="agreement.id"
+          :status="agreement.status.name"
+          :name="agreement.name"
+          :created="agreement.created_at"
+          :sign="agreement.sign_date"
+        />
       </b-col>
     </b-row>
   </div>
@@ -28,6 +41,16 @@
 import { AgreementCard } from '@/components'
 
 export default {
-  components: { AgreementCard }
+  components: { AgreementCard },
+  props: {
+    agreements: {
+      type: Array,
+      default: () => []
+    },
+    isLoading: {
+      type: Boolean,
+      default: false
+    }
+  }
 }
 </script>

@@ -6,9 +6,13 @@
       resize
       @loading="onLoadingPdf"
       @numpages="onNumpagesPdf"
+      @error="onErrorPdf"
     >
       <template slot="loading">
-        <div class="text-center">
+        <div
+          v-if="isLoading"
+          class="text-center"
+        >
           <b-spinner variant="primary" />
         </div>
       </template>
@@ -66,6 +70,10 @@ export default {
     },
     onNumpagesPdf (maximum) {
       this.maximum = maximum
+    },
+    onErrorPdf () {
+      console.log('asdasd')
+      this.isLoading = false
     }
   }
 }

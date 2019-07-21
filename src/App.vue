@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <div class="main">
+    <div class="main d-flex flex-column">
       <app-header />
       <router-view />
     </div>

@@ -71,7 +71,7 @@
             >
               <b-form-select
                 v-model="status"
-                :options="options"
+                :options="statuses"
                 required
                 size="lg"
               />
@@ -84,7 +84,7 @@
             >
               <b-form-select
                 v-model="category"
-                :options="options"
+                :options="categories"
                 size="lg"
                 required
               />
@@ -224,6 +224,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import { PageTitle } from '@/components'
 import { meta } from '@/mixins'
 
@@ -262,6 +263,23 @@ export default {
         }
       ],
       options: OPTIONS
+    }
+  },
+  computed: {
+    ...mapState([
+      'handbooks'
+    ]),
+    statuses () {
+      return this.handbooks.statuses.map(status => ({
+        value: status.id,
+        text: status.name
+      }))
+    },
+    categories () {
+      return this.handbooks.categories.map(category => ({
+        value: category.id,
+        text: category.name
+      }))
     }
   },
   methods: {

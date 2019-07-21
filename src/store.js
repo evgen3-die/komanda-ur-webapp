@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 
 import { token } from './utils'
-import { fetchLogin } from './services'
+import { fetchLogin, fetchHandbooks } from './services'
 
 Vue.use(Vuex)
 
@@ -20,7 +20,8 @@ const MENU = [
 
 export default new Vuex.Store({
   state: {
-    isLogin: false
+    isLogin: false,
+    handbooks: {}
   },
   getters: {
     menu: () => MENU
@@ -28,6 +29,9 @@ export default new Vuex.Store({
   mutations: {
     updateLoginStatus (state) {
       state.isLogin = !!token.get()
+    },
+    setHandbooks (state, handbooks) {
+      state.handbooks = handbooks
     }
   },
   actions: {
@@ -37,12 +41,21 @@ export default new Vuex.Store({
       token.set(value)
       commit('updateLoginStatus')
     },
-    async init ({ commit }) {
-      commit('updateLoginStatus')
+    async init ({ commit, dispatch }) {
+      try {
+        await dispatch('loadHandbooks')
+      } catch (e) {
+        console.error(e)
+      } finally {
+        commit('updateLoginStatus')
+      }
     },
     async logout ({ commit }) {
       token.remove()
       commit('updateLoginStatus')
+    },
+    async loadHandbooks ({ commit }) {
+      commit('setHandbooks', await fetchHandbooks())
     }
   }
 })

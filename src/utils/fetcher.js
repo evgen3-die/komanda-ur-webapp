@@ -5,7 +5,7 @@ import token from './token'
 
 function authorizationInterceptor (config) {
   if (token.get()) {
-    config.headers.authorization = token.get()
+    config.headers.authorization = `Bearer ${token.get()}`
   }
 
   return config

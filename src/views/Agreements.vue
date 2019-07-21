@@ -25,7 +25,7 @@
             >
               <b-form-select
                 v-model="status"
-                :options="options"
+                :options="statuses"
                 size="lg"
               />
             </b-form-group>
@@ -35,7 +35,7 @@
             >
               <b-form-select
                 v-model="category"
-                :options="options"
+                :options="categories"
                 size="lg"
               />
             </b-form-group>
@@ -91,14 +91,25 @@
           md="8"
           class="mt-4 mt-md-0"
         >
-          <agreement-card class="mb-3" />
-          <agreement-card class="mb-3" />
-          <agreement-card class="mb-3" />
-          <b-pagination
-            :total-rows="100"
-            :per-page="10"
-            class="mt-4"
-          />
+          <div
+            v-if="isLoading"
+            class="text-center"
+          >
+            <b-spinner variant="primary" />
+          </div>
+          <template v-else>
+            <agreement-card
+              v-for="(agreement, i) in response"
+              :key="i"
+              class="mb-3"
+              :to="`/agreements/${agreement.id}`"
+              :number="agreement.id"
+              :status="agreement.status.name"
+              :name="agreement.name"
+              :created="agreement.created_at"
+              :sign="agreement.sign_date"
+            />
+          </template>
         </b-col>
       </b-row>
     </b-container>
@@ -106,8 +117,10 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import { meta } from '@/mixins'
 import { PageTitle, AgreementCard } from '@/components'
+import { fetchAgreementsList } from '@/services'
 
 const OPTIONS = [
   'Один',
@@ -128,8 +141,30 @@ export default {
       created: '',
       publishFrom: '',
       publishTo: '',
-      options: OPTIONS
+      options: OPTIONS,
+      isLoading: true,
+      response: []
     }
+  },
+  computed: {
+    ...mapState([
+      'handbooks'
+    ]),
+    statuses () {
+      return this.handbooks.statuses.map(status => ({
+        value: status.id,
+        text: status.name
+      }))
+    },
+    categories () {
+      return this.handbooks.categories.map(category => ({
+        value: category.id,
+        text: category.name
+      }))
+    }
+  },
+  created () {
+    this.loadAgreementsList()
   },
   methods: {
     onClickClear () {
@@ -140,6 +175,15 @@ export default {
       this.created = ''
       this.publishFrom = ''
       this.publishTo = ''
+    },
+    async loadAgreementsList () {
+      try {
+        this.response = await fetchAgreementsList()
+        this.isLoading = false
+      } catch (e) {
+        this.$notify('Ошибка запроса соглашений')
+        throw e
+      }
     }
   }
 }

@@ -1,12 +1,12 @@
 <template>
   <div class="border rounded p-4 position-relative">
     <agreement-header
-      number="12"
-      status="Заключено"
+      :number="number"
+      :status="status"
     />
     <div class="mt-3">
       <small class="font-weight-bold">
-        Соглашение между Правительством Удмуртской Республики (Российская Федерация) и Народным Правительством провинции Сычуань (Китайская Народная Республика) о сотрудничестве в торгово-экономической, научно-технической, социально-гуманитарной и культурных областях
+        {{ name }}
       </small>
     </div>
     <div class="mt-3">
@@ -15,7 +15,8 @@
     </div>
     <div class="mt-3 d-md-flex text-muted">
       <small class="d-block">
-        Размещено: 04.07.2019 <span class="mx-2">|</span> Дата заключения: 20.05.2019
+        <div>Размещено: {{ created }}</div>
+        <div>Дата заключения: {{ sign }}</div>
       </small>
       <small class="ml-auto text-nowrap d-block mt-2 mt-sm-0">
         <font-awesome-icon
@@ -27,7 +28,7 @@
       </small>
     </div>
     <router-link
-      to="/agreements/asdasd"
+      :to="to"
       class="stretched-link"
     />
   </div>
@@ -37,6 +38,32 @@
 import AgreementHeader from './AgreementHeader'
 
 export default {
-  components: { AgreementHeader }
+  components: { AgreementHeader },
+  props: {
+    to: {
+      type: String,
+      default: ''
+    },
+    number: {
+      type: [String, Number],
+      default: ''
+    },
+    status: {
+      type: String,
+      default: ''
+    },
+    name: {
+      type: String,
+      default: ''
+    },
+    created: {
+      type: String,
+      default: ''
+    },
+    sign: {
+      type: String,
+      default: ''
+    }
+  }
 }
 </script>
