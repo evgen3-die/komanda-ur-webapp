@@ -1,12 +1,12 @@
 <template>
   <div>
-    <div class="d-flex mb-3 align-items-baseline">
+    <div class="d-flex mb-1 mt-lg-3 align-items-baseline">
       <div class="h5">
         12 087 соглашений на портале
       </div>
       <router-link
         to="/agreements"
-        class="ml-md-auto"
+        class="ml-auto d-none d-sm-block"
       >
         Все соглашения
       </router-link>
@@ -15,7 +15,8 @@
       <b-col
         v-for="(category, i) in categories"
         :key="i"
-        md="3"
+        lg="3"
+        md="6"
         class="mb-4"
       >
         <div

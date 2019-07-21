@@ -13,11 +13,11 @@
       <small>
         Торговля, Культура, Наука</small>
     </div>
-    <div class="mt-3 d-flex text-muted">
-      <small>
+    <div class="mt-3 d-md-flex text-muted">
+      <small class="d-block">
         Размещено: 04.07.2019 <span class="mx-2">|</span> Дата заключения: 20.05.2019
       </small>
-      <small class="ml-auto text-nowrap">
+      <small class="ml-auto text-nowrap d-block mt-2 mt-sm-0">
         <font-awesome-icon
           icon="file-pdf"
           class="mr-1"

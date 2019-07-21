@@ -1,7 +1,7 @@
 <template>
-  <div class="bg-white py-5">
+  <div class="bg-white pt-3 pb-5 py-lg-5">
     <b-container>
-      <b-row class="mb-5">
+      <b-row class="mb-3 mb-md-5">
         <b-col md="8">
           <page-title>Соглашение между Правительством Удмуртской Республики (Российская Федерация) и Народным Правительством провинции Сычуань (Китайская Народная Республика)</page-title>
         </b-col>
@@ -138,7 +138,7 @@
             </div>
           </div>
 
-          <div class="mt-5">
+          <div class="mt-4 mt-md-5">
             <div class="text-muted">
               Теги
             </div>
@@ -154,7 +154,7 @@
             </div>
           </div>
 
-          <div class="border rounded p-4 mt-5">
+          <div class="border rounded p-4 mt-4 mt-md-5">
             <div>
               <div class="text-muted">
                 Размещено:
@@ -189,7 +189,7 @@
             </div>
           </div>
 
-          <div class="border rounded p-4 mt-5 position-relative">
+          <div class="border rounded p-4 mt-4 mt-md-5 position-relative">
             <div class="text-muted">
               Куратор соглашения
             </div>

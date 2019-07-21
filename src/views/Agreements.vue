@@ -1,20 +1,10 @@
 <template>
-  <div class="bg-white py-5">
+  <div class="bg-white pt-3 pb-5 py-lg-5">
     <b-container>
       <page-title>
         {{ pageTitle }}
       </page-title>
-      <b-row class="mt-5">
-        <b-col md="8">
-          <agreement-card class="mb-3" />
-          <agreement-card class="mb-3" />
-          <agreement-card class="mb-3" />
-          <b-pagination
-            :total-rows="100"
-            :per-page="10"
-            class="mt-4"
-          />
-        </b-col>
+      <b-row class="mt-3 mt-lg-5 flex-md-row-reverse">
         <b-col md="4">
           <b-form
             class="border rounded p-4"
@@ -96,6 +86,19 @@
               Сбросить фильтры
             </b-button>
           </b-form>
+        </b-col>
+        <b-col
+          md="8"
+          class="mt-4 mt-md-0"
+        >
+          <agreement-card class="mb-3" />
+          <agreement-card class="mb-3" />
+          <agreement-card class="mb-3" />
+          <b-pagination
+            :total-rows="100"
+            :per-page="10"
+            class="mt-4"
+          />
         </b-col>
       </b-row>
     </b-container>

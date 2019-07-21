@@ -6,7 +6,7 @@
       </div>
       <router-link
         to="/agreements"
-        class="ml-md-auto"
+        class="ml-auto d-none d-sm-block"
       >
         Все соглашения
       </router-link>
@@ -15,7 +15,8 @@
       <b-col
         v-for="(i) in 3"
         :key="i"
-        md="4"
+        lg="4"
+        class="mb-3 mb-lg-0"
       >
         <agreement-card />
       </b-col>

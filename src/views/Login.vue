@@ -1,5 +1,5 @@
 <template>
-  <b-container class="mt-5 pb-5 mb-5">
+  <b-container class="mt-3 mt-lg-5 pt-lg-5 mb-5">
     <b-form
       class="form bg-white rounded p-4"
       @submit.prevent="onSubmitForm"

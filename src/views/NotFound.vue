@@ -1,5 +1,5 @@
 <template>
-  <b-container class="my-5 py-5">
+  <b-container class="my-lg-5 py-lg-5 mt-3 mb-5">
     <page-title>
       {{ pageTitle }}
     </page-title>

@@ -35,14 +35,6 @@ export default [
     }
   },
   {
-    path: '/responsible',
-    children: [
-      {
-        path: ':id'
-      }
-    ]
-  },
-  {
     path: '/404',
     component: NotFound
   },

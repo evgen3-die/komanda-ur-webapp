@@ -3,14 +3,14 @@
     <page-title>
       Поиск соглашений
     </page-title>
-    <b-form class="position-relative mt-4">
+    <b-form class="position-relative mt-2 mt-lg-4">
       <b-form-input
         class="shadow input"
         size="lg"
         placeholder="Введите ключевые слова поиска"
       />
       <b-button
-        class="button"
+        class="button d-none d-sm-block"
         size="lg"
         variant="primary"
       >
@@ -37,6 +37,8 @@ export default {
 
 .input {
   height: 76px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .button {

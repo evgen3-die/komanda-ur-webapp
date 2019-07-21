@@ -1,9 +1,9 @@
 <template>
-  <div class="bg-white py-5">
+  <div class="bg-white pt-3 pb-5 py-lg-5">
     <b-container>
       <page-title>{{ pageTitle }}</page-title>
       <b-form
-        class="mt-5"
+        class="mt-3 mt-md-5"
       >
         <b-form-group
           label="Название"
@@ -17,7 +17,7 @@
           />
         </b-form-group>
         <b-row>
-          <b-col>
+          <b-col md="6">
             <b-form-group
               label="Полное название"
               class="mb-4"
@@ -28,7 +28,7 @@
               />
             </b-form-group>
           </b-col>
-          <b-col>
+          <b-col md="6">
             <b-form-group
               label="Стороны"
               class="mb-4"
@@ -64,7 +64,7 @@
           />
         </b-form-group>
         <b-row>
-          <b-col>
+          <b-col md="6">
             <b-form-group
               label="Статус"
               class="mb-4"
@@ -77,7 +77,7 @@
               />
             </b-form-group>
           </b-col>
-          <b-col>
+          <b-col md="6">
             <b-form-group
               label="Категория"
               class="mb-4"
@@ -124,7 +124,7 @@
           class="mb-4"
         >
           <b-row>
-            <b-col>
+            <b-col md="6">
               <b-form-input
                 v-model="periodFrom"
                 type="date"
@@ -132,7 +132,10 @@
                 required
               />
             </b-col>
-            <b-col>
+            <b-col
+              md="6"
+              class="mt-2 mt-md-0"
+            >
               <b-form-input
                 v-model="periodTo"
                 type="date"
@@ -152,7 +155,7 @@
             class="border rounded p-3 mb-3"
           >
             <b-row>
-              <b-col>
+              <b-col md="6">
                 <b-form-group
                   label="Название"
                 >
@@ -164,7 +167,7 @@
                   />
                 </b-form-group>
               </b-col>
-              <b-col>
+              <b-col md="6">
                 <b-form-group
                   label="Дата"
                 >

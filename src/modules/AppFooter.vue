@@ -9,7 +9,8 @@
       </b-col>
       <b-col
         md="4"
-        offset="1"
+        offset-md="1"
+        class="mt-4 mt-md-0"
       >
         <div>
           <div class="text-muted">
@@ -31,15 +32,16 @@
       </b-col>
       <b-col
         md="3"
+        class="mt-4 mt-md-0"
       >
-        <div class="mb-3 text-muted">
+        <div class="mb-md-3 text-muted">
           Основные разделы
         </div>
         <ul class="list-unstyled text-small">
           <li
             v-for="(item, i) in menu"
             :key="i"
-            class="mb-3"
+            class="mb-md-3"
           >
             <a
               v-if="item.isExternal"

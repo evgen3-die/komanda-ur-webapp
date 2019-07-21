@@ -1,8 +1,8 @@
 <template>
-  <nav class="navbar navbar-dark bg-dark py-2">
+  <nav class="navbar navbar-dark bg-dark py-2 px-0">
     <b-container class="flex-md-nowrap">
       <a
-        class="p-2 text-light mr-md-auto ml-n2"
+        class="p-2 text-light mr-md-auto ml-n2 d-none d-md-block"
         href="https://uslugi.udmurt.ru/"
         target="_blank"
       >
@@ -26,7 +26,7 @@
       </router-link>
       <a
         v-if="isLogin"
-        class="p-2 text-light mr-n2"
+        class="p-2 text-light mr-md-n2"
         href="/"
         @click.prevent="onClickLogout"
       >

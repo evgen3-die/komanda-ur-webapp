@@ -13,7 +13,7 @@
           >
         </router-link>
         <app-menu
-          class="mr-n2"
+          class="mr-md-n2"
           :list="menu"
         />
       </div>
