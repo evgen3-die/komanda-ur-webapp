@@ -203,7 +203,7 @@ export default {
     },
     async create () {
       try {
-        await fetchAgreementCreate({
+        const id = await fetchAgreementCreate({
           name: this.name,
           full_name: this.fullName,
           sides: this.sides.split('\n'),
@@ -213,6 +213,8 @@ export default {
           representatives: this.representatives.split('\n'),
           status: '1'
         })
+
+        this.$router.push(`/agreements/${id}`)
       } catch (e) {
         this.$notify('Ошибка добавления соглашения')
         throw e
