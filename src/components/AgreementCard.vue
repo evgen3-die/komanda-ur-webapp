@@ -11,7 +11,8 @@
     </div>
     <div class="mt-3">
       <small>
-        Торговля, Культура, Наука</small>
+        {{ tags.map(tag => tag.name).join(', ') }}
+      </small>
     </div>
     <div class="mt-3 d-md-flex text-muted">
       <small class="d-block">
@@ -63,6 +64,10 @@ export default {
     sign: {
       type: String,
       default: ''
+    },
+    tags: {
+      type: Array,
+      default: () => []
     }
   }
 }

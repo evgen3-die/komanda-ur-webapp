@@ -3,16 +3,22 @@
     <page-title>
       Поиск соглашений
     </page-title>
-    <b-form class="position-relative mt-2 mt-lg-4">
+    <b-form
+      class="position-relative mt-2 mt-lg-4"
+      @submit.prevent="onSubmitForm"
+    >
       <b-form-input
+        v-model="query"
         class="shadow input"
         size="lg"
         placeholder="Введите ключевые слова поиска"
+        required
       />
       <b-button
         class="button d-none d-sm-block"
         size="lg"
         variant="primary"
+        type="submit"
       >
         Найти
       </b-button>
@@ -24,7 +30,17 @@
 import { PageTitle } from '@/components'
 
 export default {
-  components: { PageTitle }
+  components: { PageTitle },
+  data () {
+    return {
+      query: ''
+    }
+  },
+  methods: {
+    onSubmitForm () {
+      this.$router.push({ path: '/agreements', query: { query: this.query } })
+    }
+  }
 }
 </script>
 

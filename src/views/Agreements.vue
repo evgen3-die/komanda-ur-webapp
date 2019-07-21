@@ -14,19 +14,25 @@
           >
             <b-spinner variant="primary" />
           </div>
-          <template v-else>
-            <agreement-card
-              v-for="(agreement, i) in response"
-              :key="i"
-              class="mb-3"
-              :to="`/agreements/${agreement.id}`"
-              :number="agreement.id"
-              :status="agreement.status.name"
-              :name="agreement.name"
-              :created="agreement.created_at"
-              :sign="agreement.sign_date"
-            />
-          </template>
+          <div v-else>
+            <template v-if="filteredAgreements.length">
+              <agreement-card
+                v-for="(agreement, i) in filteredAgreements"
+                :key="i"
+                class="mb-3"
+                :to="`/agreements/${agreement.id}`"
+                :number="agreement.id"
+                :status="agreement.status.name"
+                :name="agreement.name"
+                :created="agreement.created_at"
+                :sign="agreement.sign_date"
+                :tags="agreement.tags"
+              />
+            </template>
+            <div v-else>
+              Ничего не найдено
+            </div>
+          </div>
         </b-col>
       </b-row>
     </b-container>
@@ -78,6 +84,15 @@ export default {
         value: category.id,
         text: category.name
       }))
+    },
+    filteredAgreements () {
+      const { query } = this.$route.query
+
+      if (query) {
+        return this.response.filter(agreement => agreement.full_name.includes(query))
+      }
+
+      return this.response
     }
   },
   created () {

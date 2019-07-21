@@ -22,7 +22,7 @@
         v-for="(agreement, i) in agreements"
         :key="i"
         lg="4"
-        class="mb-3 mb-lg-0"
+        class="mb-3 mb-lg-0 d-flex"
       >
         <agreement-card
           :to="`/agreements/${agreement.id}`"
@@ -31,6 +31,7 @@
           :name="agreement.name"
           :created="agreement.created_at"
           :sign="agreement.sign_date"
+          :tags="agreement.tags"
         />
       </b-col>
     </b-row>
